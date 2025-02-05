@@ -22,7 +22,13 @@ posicao_x4 = 50
 posicao_y4 = 1000
 velocidade4 = 6
 
+#carro5
+posicao_x5 = 200
+posicao_y5 = 700
+velocidade5 = 7
+
 background = pygame.image.load('pista.jpg')
+carro5 = pygame.image.load('carro5.png')
 carro4 = pygame.image.load('carro4.png')
 carro3 = pygame.image.load('carro3.png')
 carro2 = pygame.image.load('carro2.png')
@@ -69,8 +75,14 @@ while tela_aberta:
     if posicao_y4 >= 1000:
       posicao_y4 = -150
 
+    #movimentação carro4 em loop
+    posicao_y5 += velocidade5
+    if posicao_y5 >= 1000:
+      posicao_y5 = -150
+
 
     tela.blit(background, (0,0)) #Para conseguir ver o backgorund
+    tela.blit(carro5, (posicao_x5, posicao_y5)) #Para conseguir ver o carro/posiçao
     tela.blit(carro4, (posicao_x4, posicao_y4)) #Para conseguir ver o carro/posiçao
     tela.blit(carro3, (posicao_x3, posicao_y3)) #Para conseguir ver o carro/posiçao
     tela.blit(carro2, (posicao_x2, posicao_y2)) #Para conseguir ver o carro/posiçao
