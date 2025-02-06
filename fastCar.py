@@ -27,6 +27,16 @@ posicao_x5 = 200
 posicao_y5 = 700
 velocidade5 = 7
 
+#tempo
+font = pygame.font.SysFont('Arial black', 30)
+textoTempo = font.render("Tempo: ", True, (255,255,255,), (0,0,0))
+text_pos = textoTempo.get_rect()
+text_pos.center = (70,50)
+
+timer = 0
+sec = 0
+
+
 background = pygame.image.load('pista.jpg')
 carro5 = pygame.image.load('carro5.png')
 carro4 = pygame.image.load('carro4.png')
@@ -46,16 +56,16 @@ while tela_aberta:
 
 #Movimentaçao do carro1
     movimentos = pygame.key.get_pressed()
-    if movimentos[pygame.K_UP]:
+    if movimentos[pygame.K_UP] and posicao_y >= 30: # o and limita o movimento 
      posicao_y-= velocidade
     
-    if movimentos[pygame.K_DOWN]:
+    if movimentos[pygame.K_DOWN] and posicao_y <= 820:
      posicao_y += velocidade
 
-    if movimentos[pygame.K_LEFT]:
+    if movimentos[pygame.K_LEFT] and posicao_x >= 50: 
      posicao_x -= velocidade
     
-    if movimentos[pygame.K_RIGHT]:
+    if movimentos[pygame.K_RIGHT] and posicao_x <= 500:
      posicao_x += velocidade
 
     #movimentação carro2 em loop
@@ -63,13 +73,11 @@ while tela_aberta:
     if posicao_y2 <= -150:
       posicao_y2 = 1000
 
-
     #movimentação carro3 em loop
     posicao_y3 += velocidade3
     if posicao_y3 >= 1000:
       posicao_y3 = -150
 
-    
     #movimentação carro4 em loop
     posicao_y4 += velocidade4
     if posicao_y4 >= 1000:
@@ -81,7 +89,18 @@ while tela_aberta:
       posicao_y5 = -150
 
 
+#temporizadpr
+    if (timer <20):
+      timer +=1
+    else:
+      sec +=1
+      textoTempo = font.render("Tempo: "+ str(sec), True, (255,255,255,), (0,0,0))
+      timer = 0
+  
+
+
     tela.blit(background, (0,0)) #Para conseguir ver o backgorund
+    tela.blit(textoTempo, text_pos)
     tela.blit(carro5, (posicao_x5, posicao_y5)) #Para conseguir ver o carro/posiçao
     tela.blit(carro4, (posicao_x4, posicao_y4)) #Para conseguir ver o carro/posiçao
     tela.blit(carro3, (posicao_x3, posicao_y3)) #Para conseguir ver o carro/posiçao
