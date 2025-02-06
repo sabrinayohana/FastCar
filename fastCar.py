@@ -28,10 +28,10 @@ posicao_y5 = 700
 velocidade5 = 7
 
 #tempo
-font = pygame.font.SysFont('Arial black', 30)
+font = pygame.font.SysFont('Arial black', 20)
 textoTempo = font.render("Tempo: ", True, (255,255,255,), (0,0,0))
 text_pos = textoTempo.get_rect()
-text_pos.center = (70,50)
+text_pos.center = (50,50)
 
 timer = 0
 sec = 0
