@@ -80,6 +80,21 @@ while tela_aberta:
     if posicao_y5 >= 1000:
       posicao_y5 = -150
 
+#colisao
+    jogador_rect = pygame.Rect(posicao_x, posicao_y, carro.get_width(), carro.get_height())
+    carro2_rect = pygame.Rect(posicao_x2, posicao_y2, carro2.get_width(), carro2.get_height())
+    carro3_rect = pygame.Rect(posicao_x3, posicao_y3, carro3.get_width(), carro3.get_height())
+    carro4_rect = pygame.Rect(posicao_x4, posicao_y4, carro4.get_width(), carro4.get_height())
+    carro5_rect = pygame.Rect(posicao_x5, posicao_y5, carro5.get_width(), carro5.get_height())
+
+    if (jogador_rect.colliderect(carro2_rect) or
+        jogador_rect.colliderect(carro3_rect) or
+        jogador_rect.colliderect(carro4_rect) or
+        jogador_rect.colliderect(carro5_rect)):
+
+        posicao_x = 360  
+        posicao_y = 850
+
 
     tela.blit(background, (0,0)) #Para conseguir ver o backgorund
     tela.blit(carro5, (posicao_x5, posicao_y5)) #Para conseguir ver o carro/posiçao
