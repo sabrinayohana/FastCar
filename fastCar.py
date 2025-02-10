@@ -1,3 +1,4 @@
+from string import Template
 import pygame
 
 pygame.init()
@@ -36,6 +37,7 @@ text_pos.center = (50,50)
 timer = 0
 sec = 0
 
+status = "menu"
 
 background = pygame.image.load('pista.jpg')
 carro5 = pygame.image.load('carro5.png')
@@ -103,7 +105,6 @@ while tela_aberta:
         posicao_x = 360  
         posicao_y = 850
 
-
 #temporizadpr
     if (timer <20):
       timer +=1
@@ -112,8 +113,6 @@ while tela_aberta:
       textoTempo = font.render("Tempo: "+ str(sec), True, (255,255,255,), (0,0,0))
       timer = 0
   
-
-
     tela.blit(background, (0,0)) #Para conseguir ver o backgorund
     tela.blit(textoTempo, text_pos)
     tela.blit(carro5, (posicao_x5, posicao_y5)) #Para conseguir ver o carro/posiçao
