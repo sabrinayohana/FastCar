@@ -49,6 +49,11 @@ textoGameOver = fontGameOver.render("GAME OVER", True, (255, 255, 255), (0, 0, 0
 gameOver_pos = textoGameOver.get_rect()
 gameOver_pos.center = (300, 500)
 
+#Vitoria
+fontWin = pygame.font.SysFont('Arial black', 40)
+textoWin = fontWin.render("YOU WIN", True, (255, 255, 255), (0, 0, 0))
+win_pos = textoWin.get_rect()
+win_pos.center = (300, 500)
 
 background = pygame.image.load('pista.jpg')
 carro5 = pygame.image.load('carro5.png')
@@ -135,10 +140,22 @@ while tela_aberta:
             timer += 1
         else:
             sec += 1
-            textoTempo = fontTimer.render("Tempo: " + str(sec), True, (255, 255, 255,), (0, 0, 0))  # Corrigido para fontTimer
+            textoTempo = fontTimer.render("Tempo: " + str(sec), True, (255, 255, 255,), (0, 0, 0))  
             timer = 0
+
+        if sec >= 10:
+            status = "vitoria"
+
         
-        if status == "game_over":
+        elif status == "vitoria":
+          tela.fill((0, 0, 0))
+          tela.blit(textoWin, win_pos)
+          pygame.display.update()
+          pygame.time.delay(3000) #3 segundos
+          tela_aberta = False
+
+        
+        elif status == "game_over":
           tela.fill((0, 0, 0))
           tela.blit(textoGameOver, gameOver_pos)
           pygame.display.update()
