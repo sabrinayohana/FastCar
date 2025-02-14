@@ -146,23 +146,6 @@ while tela_aberta:
         if sec >= 10:
             status = "vitoria"
 
-        
-        elif status == "vitoria":
-          tela.fill((0, 0, 0))
-          tela.blit(textoWin, win_pos)
-          pygame.display.update()
-          pygame.time.delay(3000) #3 segundos
-          tela_aberta = False
-
-        
-        elif status == "game_over":
-          tela.fill((0, 0, 0))
-          tela.blit(textoGameOver, gameOver_pos)
-          pygame.display.update()
-          pygame.time.delay(3000) #3 segundos
-          tela_aberta = False
-
-
         tela.blit(background, (0, 0))  # Para conseguir ver o background
         tela.blit(textoTempo, text_pos)
         tela.blit(carro5, (posicao_x5, posicao_y5))  # Para conseguir ver o carro/posição
@@ -171,5 +154,19 @@ while tela_aberta:
         tela.blit(carro2, (posicao_x2, posicao_y2))  # Para conseguir ver o carro/posição
         tela.blit(carro, (posicao_x, posicao_y))  # Para conseguir ver o carro/posição
         pygame.display.update()
+
+    if status == "vitoria":
+        tela.fill((0, 0, 0))
+        tela.blit(textoWin, win_pos)
+        pygame.display.update()
+        pygame.time.delay(3000) #3 segundos
+        tela_aberta = False
+
+    elif status == "game_over":
+        tela.fill((0, 0, 0))
+        tela.blit(textoGameOver, gameOver_pos)
+        pygame.display.update()
+        pygame.time.delay(3000) #3 segundos
+        tela_aberta = False
 
 pygame.quit()
