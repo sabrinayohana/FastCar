@@ -27,6 +27,12 @@ posicao_x5 = 200
 posicao_y5 = 700
 velocidade5 = 7
 
+velocidade_pista = 40
+posicao_y_pista2 = 10  
+posicao_y_pista3 = 10
+posicao_y_pista4 = 600
+posicao_y_pista5 = 600
+
 # Fontw tempo
 fontTimer = pygame.font.SysFont('Arial black', 20)
 textoTempo = fontTimer.render("Tempo: ", True, (255, 255, 255,), (0, 0, 0))
@@ -60,6 +66,8 @@ win_pos.center = (300, 500)
 background = pygame.image.load('pista2.png')
 background2 = pygame.image.load('pista3.jpg')
 background3 = pygame.image.load('pista4.jpg')
+background4 = pygame.image.load('pista5.jpg')
+background5 = pygame.image.load('pista6.jpg')
 carro5 = pygame.image.load('carro5.png')
 carro4 = pygame.image.load('carro4.png')
 carro3 = pygame.image.load('carro3.png')
@@ -69,10 +77,7 @@ tela = pygame.display.set_mode((600, 1000))
 pygame.display.set_caption('FastCar')
 
 
-velocidade_pista = 5  
-
-posicao_y_pista2 = 0  # Posição inicial da pista2
-posicao_y_pista3 = 0  # Posição inicial da pista3
+ 
 
 # Mantém a tela aberta
 tela_aberta = True
@@ -159,6 +164,8 @@ while tela_aberta:
         # Movimentação das pistas
         posicao_y_pista2 += velocidade_pista
         posicao_y_pista3 += velocidade_pista
+        posicao_y_pista4 += velocidade_pista
+        posicao_y_pista5 += velocidade_pista
 
         # LOOP PISTA
         if posicao_y_pista2 >= 1000:
@@ -166,11 +173,19 @@ while tela_aberta:
 
         if posicao_y_pista3 >= 1000:
             posicao_y_pista3 = -1000  
+        
+        if posicao_y_pista4 >= 1000:
+            posicao_y_pista4 = -1000  
+
+        if posicao_y_pista5 >= 1000:
+            posicao_y_pista5 = -1000 
 
         # >>>>>>>>>>>>>> DESENHOSSS <<<<<<<<<<<<<<<<<<<<<<<
         tela.blit(background, (0, 0))  
         tela.blit(background2, (450, posicao_y_pista2)) 
-        tela.blit(background3, (145, posicao_y_pista3))  
+        tela.blit(background3, (145, posicao_y_pista3)) 
+        tela.blit(background4, (450, posicao_y_pista4)) 
+        tela.blit(background5, (145, posicao_y_pista5))   
         tela.blit(textoTempo, text_pos)
         tela.blit(carro5, (posicao_x5, posicao_y5))  # Para conseguir ver o carro/posição
         tela.blit(carro4, (posicao_x4, posicao_y4))  # Para conseguir ver o carro/posição
