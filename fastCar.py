@@ -28,16 +28,18 @@ posicao_y5 = 700
 velocidade5 = 7
 
 velocidade_pista = 40
-posicao_y_pista2 = 0  
-posicao_y_pista3 = 0
-posicao_y_pista4 = 200
-posicao_y_pista5 = 200
-posicao_y_pista6 = 400
-posicao_y_pista7 = 400
-posicao_y_pista8 = 600
-posicao_y_pista9 = 600
-posicao_y_pista10 = 800
-posicao_y_pista11 = 800
+pos_pista1 = 0  
+pos_pista2= 0
+pos_pista3 = 300
+pos_pista4= 300
+pos_pista5 = 600
+pos_pista6 = 600
+pos_pista7 = 800
+pos_pista8 = 800
+pos_pista9 = 1000
+pos_pista10 = 1000
+pos_pista11 = 200
+pos_pista12 = 200
 
 # Fontw tempo
 fontTimer = pygame.font.SysFont('Arial black', 20)
@@ -70,16 +72,18 @@ win_pos.center = (300, 500)
 
 # >>>>>>>>>>>>>>>>>>>> FOTOS <<<<<<<<<<<<<<<<<<<<<<<<<<<
 background = pygame.image.load('pista.png')
-background2 = pygame.image.load('pista3.jpg')
-background3 = pygame.image.load('pista4.jpg')
-background4 = pygame.image.load('pista5.jpg')
-background5 = pygame.image.load('pista6.jpg')
-background6 = pygame.image.load('pista7.jpg')
-background7 = pygame.image.load('pista8.jpg')
-background8 = pygame.image.load('pista9.jpg')
-background9 = pygame.image.load('pista10.jpg')
-background10 = pygame.image.load('pista11.jpg')
-background11 = pygame.image.load('pista12.jpg')
+background1 = pygame.image.load('pista1.jpg')
+background2 = pygame.image.load('pista2.jpg')
+background3 = pygame.image.load('pista3.jpg')
+background4 = pygame.image.load('pista4.jpg')
+background5 = pygame.image.load('pista5.jpg')
+background6 = pygame.image.load('pista6.jpg')
+background7 = pygame.image.load('pista7.jpg')
+background8 = pygame.image.load('pista8.jpg')
+background9 = pygame.image.load('pista9.jpg')
+background10 = pygame.image.load('pista10.jpg')
+background11 = pygame.image.load('pista11.jpg')
+background12 = pygame.image.load('pista12.jpg')
 carro5 = pygame.image.load('carro5.png')
 carro4 = pygame.image.load('carro4.png')
 carro3 = pygame.image.load('carro3.png')
@@ -174,60 +178,70 @@ while tela_aberta:
             status = "vitoria"
 
         # Movimentação das pistas
-        posicao_y_pista2 += velocidade_pista
-        posicao_y_pista3 += velocidade_pista
-        posicao_y_pista4 += velocidade_pista
-        posicao_y_pista5 += velocidade_pista
-        posicao_y_pista6 += velocidade_pista
-        posicao_y_pista7 += velocidade_pista
-        posicao_y_pista8 += velocidade_pista
-        posicao_y_pista9 += velocidade_pista
-        posicao_y_pista10 += velocidade_pista
-        posicao_y_pista11 += velocidade_pista
+        pos_pista1 += velocidade_pista
+        pos_pista2+= velocidade_pista
+        pos_pista3 += velocidade_pista
+        pos_pista4+= velocidade_pista
+        pos_pista5 += velocidade_pista
+        pos_pista6 += velocidade_pista
+        pos_pista7 += velocidade_pista
+        pos_pista8 += velocidade_pista
+        pos_pista9 += velocidade_pista
+        pos_pista10 += velocidade_pista
+        pos_pista11 += velocidade_pista
+        pos_pista12 += velocidade_pista
 
         # LOOP PISTA
-        if posicao_y_pista2 >= 1000:
-            posicao_y_pista2 = -1000  
+        if pos_pista1 >= 1000:
+            pos_pista1 = -1000  
 
-        if posicao_y_pista3 >= 1000:
-            posicao_y_pista3 = -1000  
+        if pos_pista2>= 1000:
+            pos_pista2= -1000  
         
-        if posicao_y_pista4 >= 1000:
-            posicao_y_pista4 = -1000  
+        if pos_pista3 >= 1000:
+            pos_pista3 = -1000  
 
-        if posicao_y_pista5 >= 1000:
-            posicao_y_pista5 = -1000 
+        if pos_pista4>= 1000:
+            pos_pista4= -1000 
         
-        if posicao_y_pista6 >= 1000:
-            posicao_y_pista6 = -1000        
+        if pos_pista5 >= 1000:
+            pos_pista5 = -1000        
             
-        if posicao_y_pista7 >= 1000:
-            posicao_y_pista7 = -1000 
+        if pos_pista6 >= 1000:
+            pos_pista6 = -1000 
 
-        if posicao_y_pista8 >= 1000:
-            posicao_y_pista8 = -1000  
+        if pos_pista7 >= 1000:
+            pos_pista7 = -1000  
 
-        if posicao_y_pista9 >= 1000:
-            posicao_y_pista9 = -1000 
+        if pos_pista8 >= 1000:
+            pos_pista8 = -1000 
         
-        if posicao_y_pista10 >= 1000:
-            posicao_y_pista10 = -1000        
+        if pos_pista9 >= 1000:
+            pos_pista9 = -1000        
             
-        if posicao_y_pista11 >= 1000:
-            posicao_y_pista11 = -1000 
+        if pos_pista10 >= 1000:
+            pos_pista10 = -1000 
+
+        if pos_pista11 >= 1000:
+            pos_pista11 = -1000        
+            
+        if pos_pista12 >= 1000:
+            pos_pista12 = -1000 
 
         # >>>>>>>>>>>>>> DESENHOSSS <<<<<<<<<<<<<<<<<<<<<<<
         tela.blit(background, (0, 0))  
-        tela.blit(background2, (450, posicao_y_pista2)) 
-        tela.blit(background3, (145, posicao_y_pista3)) 
-        tela.blit(background4, (450, posicao_y_pista4)) 
-        tela.blit(background5, (145, posicao_y_pista5))  
-        tela.blit(background6, (450, posicao_y_pista6)) 
-        tela.blit(background7, (145, posicao_y_pista7))
-        tela.blit(background8, (450, posicao_y_pista8)) 
-        tela.blit(background9, (145, posicao_y_pista9))  
-        tela.blit(background10, (450, posicao_y_pista10)) 
-        tela.blit(background11, (145, posicao_y_pista11))   
+        tela.blit(background1, (450, pos_pista1)) 
+        tela.blit(background2, (145, pos_pista2)) 
+        tela.blit(background3, (450, pos_pista3)) 
+        tela.blit(background4, (145, pos_pista4))  
+        tela.blit(background5, (450, pos_pista5)) 
+        tela.blit(background6, (145, pos_pista6))
+        tela.blit(background7, (450, pos_pista7)) 
+        tela.blit(background8, (145, pos_pista8))  
+        tela.blit(background9, (450, pos_pista9)) 
+        tela.blit(background10, (145, pos_pista10))   
+        tela.blit(background11, (450, pos_pista11)) 
+        tela.blit(background12, (145, pos_pista12))  
         tela.blit(textoTempo, text_pos)
         tela.blit(carro5, (posicao_x5, posicao_y5))  # Para conseguir ver o carro/posição
         tela.blit(carro4, (posicao_x4, posicao_y4))  # Para conseguir ver o carro/posição
