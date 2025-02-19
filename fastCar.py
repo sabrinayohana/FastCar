@@ -3,8 +3,12 @@ import pygame
 pygame.init()
 pygame.mixer.init()
 
+soundtrack = pygame.mixer.music.load('soundtrack2.ogg')
+som_gameOver = pygame.mixer.music.load('you-lose.ogg')
+som_vitoria = pygame.mixer.music.load('you-win.ogg')
+
 # carro1
-posicao_x = 360; posicao_y = 850; velocidade = 10
+posicao_x = 360; posicao_y = 850; velocidade = 10; velocidade1 = 1
 
 # carro2
 posicao_x2 = 500; posicao_y2 = 1000; velocidade2 = 9
@@ -16,7 +20,7 @@ posicao_x3 = 200; posicao_y3 = 1000; velocidade3 = 9
 posicao_x4 = 50; posicao_y4 = 1000; velocidade4 = 5
 
 # carro5
-posicao_x5 = 200; posicao_y5 = 700; velocidade5 = 7
+posicao_x5 = 360; posicao_y5 = 1000; velocidade5 = 6
 
 velocidade_pista = 40
 pos_pista1 = 0; pos_pista2= 0
@@ -53,12 +57,6 @@ fontWin = pygame.font.SysFont('Arial black', 40)
 textoWin = fontWin.render("YOU WIN", True, (255, 255, 255), (0, 0, 0))
 win_pos = textoWin.get_rect()
 win_pos.center = (300, 500)
-
-
-# >>>>>>>>>>>>>>>>>>> SONS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-soundtrack = pygame.mixer.Sound("soundtrack.ogg")  
-som_gameOver = pygame.mixer.Sound("you-lose.ogg")  
-som_vitoria = pygame.mixer.Sound("you-win.ogg")
 
 
 # >>>>>>>>>>>>>>>>>>>> FOTOS <<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -110,10 +108,10 @@ while tela_aberta:
 
         # Movimentação do carro1
         if movimentos[pygame.K_UP] and posicao_y >= 30:  # o and limita o movimento
-            posicao_y -= velocidade
+            posicao_y -= velocidade1
 
         if movimentos[pygame.K_DOWN] and posicao_y <= 820:
-            posicao_y += velocidade
+            posicao_y += velocidade1
 
         if movimentos[pygame.K_LEFT] and posicao_x >= 50:
             posicao_x -= velocidade
@@ -165,7 +163,7 @@ while tela_aberta:
             textoTempo = fontTimer.render("Tempo: " + str(sec), True, (0, 0, 0,), (255, 217, 95))  
             timer = 0
 
-        if sec >= 10:
+        if sec >= 15:
             status = "vitoria"
 
         # Movimentação das pistas
@@ -234,10 +232,10 @@ while tela_aberta:
         tela.blit(background11, (450, pos_pista11)) 
         tela.blit(background12, (145, pos_pista12))  
         tela.blit(textoTempo, text_pos)
-        tela.blit(carro5, (posicao_x5, posicao_y5))  # Para conseguir ver o carro/posição
-        tela.blit(carro4, (posicao_x4, posicao_y4))  # Para conseguir ver o carro/posição
-        tela.blit(carro3, (posicao_x3, posicao_y3))  # Para conseguir ver o carro/posição
-        tela.blit(carro2, (posicao_x2, posicao_y2))  # Para conseguir ver o carro/posição
+        tela.blit(carro5, (posicao_x5, posicao_y5))  
+        tela.blit(carro4, (posicao_x4, posicao_y4))  
+        tela.blit(carro3, (posicao_x3, posicao_y3))  
+        tela.blit(carro2, (posicao_x2, posicao_y2))  
         tela.blit(carro, (posicao_x, posicao_y))  # Para conseguir ver o carro/posição
         pygame.display.update()
 
