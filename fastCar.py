@@ -13,22 +13,22 @@ posicao_x2 = 500; posicao_y2 = 1000; velocidade2 = 9
 posicao_x3 = 200; posicao_y3 = 1000; velocidade3 = 9
 
 # carro4
-posicao_x4 = 50; posicao_y4 = 1000; velocidade4 = 6
+posicao_x4 = 50; posicao_y4 = 1000; velocidade4 = 5
 
 # carro5
 posicao_x5 = 200; posicao_y5 = 700; velocidade5 = 7
 
 velocidade_pista = 40
 pos_pista1 = 0; pos_pista2= 0
-pos_pista3 = 300; pos_pista4= 300
-pos_pista5 = 600; pos_pista6 = 600
-pos_pista7 = 800; pos_pista8 = 800
-pos_pista9 = 1000; pos_pista10 = 1000
-pos_pista11 = 200; pos_pista12 = 200
+pos_pista3 = 400; pos_pista4= 400
+pos_pista5 = 800; pos_pista6 = 800
+pos_pista7 = -200; pos_pista8 = -200
+pos_pista9 = -500; pos_pista10 = -500
+pos_pista11 = -900; pos_pista12 = -900
 
 # Fontw tempo
 fontTimer = pygame.font.SysFont('Arial black', 20)
-textoTempo = fontTimer.render("Tempo: ", True, (255, 255, 255,), (0, 0, 0))
+textoTempo = fontTimer.render("Tempo: ", True, (0, 0, 0,), (255, 217, 95))  
 text_pos = textoTempo.get_rect()
 text_pos.center = (50, 50)
 
@@ -62,19 +62,19 @@ som_vitoria = pygame.mixer.Sound("you-win.ogg")
 
 
 # >>>>>>>>>>>>>>>>>>>> FOTOS <<<<<<<<<<<<<<<<<<<<<<<<<<<
-background = pygame.image.load('pista.png')
-background1 = pygame.image.load('pista1.jpg')
-background2 = pygame.image.load('pista2.jpg')
-background3 = pygame.image.load('pista3.jpg')
-background4 = pygame.image.load('pista4.jpg')
-background5 = pygame.image.load('pista5.jpg')
-background6 = pygame.image.load('pista6.jpg')
-background7 = pygame.image.load('pista7.jpg')
-background8 = pygame.image.load('pista8.jpg')
-background9 = pygame.image.load('pista9.jpg')
-background10 = pygame.image.load('pista10.jpg')
-background11 = pygame.image.load('pista11.jpg')
-background12 = pygame.image.load('pista12.jpg')
+background = pygame.image.load('pista.jpg')
+background1 = pygame.image.load('pista1.png')
+background2 = pygame.image.load('pista2.png')
+background3 = pygame.image.load('pista3.png')
+background4 = pygame.image.load('pista4.png')
+background5 = pygame.image.load('pista5.png')
+background6 = pygame.image.load('pista6.png')
+background7 = pygame.image.load('pista7.png')
+background8 = pygame.image.load('pista8.png')
+background9 = pygame.image.load('pista9.png')
+background10 = pygame.image.load('pista10.png')
+background11 = pygame.image.load('pista11.png')
+background12 = pygame.image.load('pista12.png')
 carro5 = pygame.image.load('carro5.png')
 carro4 = pygame.image.load('carro4.png')
 carro3 = pygame.image.load('carro3.png')
@@ -162,7 +162,7 @@ while tela_aberta:
             timer += 1
         else:
             sec += 1
-            textoTempo = fontTimer.render("Tempo: " + str(sec), True, (255, 255, 255,), (0, 0, 0))  
+            textoTempo = fontTimer.render("Tempo: " + str(sec), True, (0, 0, 0,), (255, 217, 95))  
             timer = 0
 
         if sec >= 10:
@@ -182,7 +182,7 @@ while tela_aberta:
         pos_pista11 += velocidade_pista
         pos_pista12 += velocidade_pista
 
-        # LOOP PISTA
+        # LOOP PISTAs
         if pos_pista1 >= 1000:
             pos_pista1 = -1000  
 
