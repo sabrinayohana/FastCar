@@ -22,7 +22,7 @@ posicao_x4 = 50; posicao_y4 = 1000; velocidade4 = 5
 # carro5 VERMELHO
 posicao_x5 = 360; posicao_y5 = 1000; velocidade5 = 6
 
-velocidade_pista = 40
+velocidade_pista = 30
 pos_pista1 = 0; pos_pista2= 0
 pos_pista3 = 400; pos_pista4= 400
 pos_pista5 = 800; pos_pista6 = 800
@@ -40,33 +40,34 @@ timer = 0
 sec = 0
 
 status = "menu"
-fontMenu = pygame.font.SysFont('Arial black', 30)
-textoMenu = fontMenu.render("Pressione [S] para iniciar", True, (255, 255, 255,), (0, 0, 0))
+fontMenu = pygame.font.SysFont('None', 30)
+textoMenu = fontMenu.render("Pressione [S] para iniciar", True, (255, 255, 255,))
 menu_pos = textoMenu.get_rect()
 menu_pos.center = (300, 500)
 
 fontJogarNovamente = pygame.font.SysFont('Arial black', 20)
-textoJogarNovamente = fontJogarNovamente.render("Pressione [A] para jogar novamente", True, (255, 255, 255,), (0, 0, 0))
+textoJogarNovamente = fontJogarNovamente.render("Pressione [A] para jogar novamente", True, (255, 255, 255,))
 jogarNovamente_pos = textoJogarNovamente.get_rect()
 jogarNovamente_pos.center = (300, 600)
 
 fontExit = pygame.font.SysFont('Arial black', 20)
-textoExit = fontExit.render("Pressione [E] para sair", True, (255, 255, 255,), (0, 0, 0)) 
+textoExit = fontExit.render("Pressione [E] para sair", True, (255, 255, 255,)) 
 exit_pos = textoExit.get_rect()
 exit_pos.center = (300, 700)
 
 fontGameOver = pygame.font.SysFont('Arial black', 40)
-textoGameOver = fontGameOver.render("GAME OVER", True, (255, 255, 255), (0, 0, 0))
+textoGameOver = fontGameOver.render("GAME OVER", True, (255, 255, 255))
 gameOver_pos = textoGameOver.get_rect()
 gameOver_pos.center = (300, 500)
 
 fontWin = pygame.font.SysFont('Arial black', 40)
-textoWin = fontWin.render("YOU WIN", True, (255, 255, 255), (0, 0, 0))
+textoWin = fontWin.render("YOU WIN", True, (255, 255, 255))
 win_pos = textoWin.get_rect()
 win_pos.center = (300, 500)
 
 
 # >>>>>>>>>>>>>>>>>>>> FOTOS <<<<<<<<<<<<<<<<<<<<<<<<<<<
+backgroundMenu = pygame.image.load('menuBack.png')
 background = pygame.image.load('pista.jpg')
 background1 = pygame.image.load('pista1.png')
 background2 = pygame.image.load('pista2.png')
@@ -101,6 +102,7 @@ while tela_aberta:
 
     if status == "menu":
         tela.fill((0, 0, 0))
+        tela.blit(backgroundMenu, (0, 0))
         tela.blit(textoMenu, menu_pos)
         tela.blit(textoExit, exit_pos)
         pygame.display.update()
