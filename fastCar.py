@@ -7,19 +7,19 @@ soundtrack = pygame.mixer.music.load('soundtrack2.ogg')
 som_gameOver = pygame.mixer.music.load('you-lose.ogg')
 som_vitoria = pygame.mixer.music.load('you-win.ogg')
 
-# carro1
+# carro princpal
 posicao_x = 360; posicao_y = 850; velocidade = 10; velocidade1 = 1
 
-# carro2
+# carro2 AZUL
 posicao_x2 = 500; posicao_y2 = 1000; velocidade2 = 9
 
-# carro3
+# carro3 ROXO
 posicao_x3 = 200; posicao_y3 = 1000; velocidade3 = 9
 
-# carro4
+# carro4 VERDE
 posicao_x4 = 50; posicao_y4 = 1000; velocidade4 = 5
 
-# carro5
+# carro5 VERMELHO
 posicao_x5 = 360; posicao_y5 = 1000; velocidade5 = 6
 
 velocidade_pista = 40
@@ -30,7 +30,7 @@ pos_pista7 = -200; pos_pista8 = -200
 pos_pista9 = -500; pos_pista10 = -500
 pos_pista11 = -900; pos_pista12 = -900
 
-# Fontw tempo
+
 fontTimer = pygame.font.SysFont('Arial black', 20)
 textoTempo = fontTimer.render("Tempo: ", True, (0, 0, 0,), (255, 217, 95))  
 text_pos = textoTempo.get_rect()
@@ -39,20 +39,27 @@ text_pos.center = (50, 50)
 timer = 0
 sec = 0
 
-# menu fonte e posiçao
 status = "menu"
-fontMenu = pygame.font.SysFont('Arial black', 40)
+fontMenu = pygame.font.SysFont('Arial black', 30)
 textoMenu = fontMenu.render("Pressione [S] para iniciar", True, (255, 255, 255,), (0, 0, 0))
 menu_pos = textoMenu.get_rect()
 menu_pos.center = (300, 500)
 
-# GAME OVEEER
+fontJogarNovamente = pygame.font.SysFont('Arial black', 20)
+textoJogarNovamente = fontJogarNovamente.render("Pressione [A] para jogar novamente", True, (255, 255, 255,), (0, 0, 0))
+jogarNovamente_pos = textoJogarNovamente.get_rect()
+jogarNovamente_pos.center = (300, 600)
+
+fontExit = pygame.font.SysFont('Arial black', 20)
+textoExit = fontExit.render("Pressione [E] para sair", True, (255, 255, 255,), (0, 0, 0)) 
+exit_pos = textoExit.get_rect()
+exit_pos.center = (300, 700)
+
 fontGameOver = pygame.font.SysFont('Arial black', 40)
 textoGameOver = fontGameOver.render("GAME OVER", True, (255, 255, 255), (0, 0, 0))
 gameOver_pos = textoGameOver.get_rect()
 gameOver_pos.center = (300, 500)
 
-# Vitoria
 fontWin = pygame.font.SysFont('Arial black', 40)
 textoWin = fontWin.render("YOU WIN", True, (255, 255, 255), (0, 0, 0))
 win_pos = textoWin.get_rect()
@@ -82,9 +89,7 @@ tela = pygame.display.set_mode((600, 1000))
 pygame.display.set_caption('FastCar')
 
 
- 
-
-# Mantém a tela aberta
+# TELA
 tela_aberta = True
 while tela_aberta:
     pygame.time.delay(50)
@@ -92,49 +97,49 @@ while tela_aberta:
         if event.type == pygame.QUIT:
             tela_aberta = False
 
-    movimentos = pygame.key.get_pressed()
+    teclas = pygame.key.get_pressed()
 
     if status == "menu":
         tela.fill((0, 0, 0))
         tela.blit(textoMenu, menu_pos)
+        tela.blit(textoExit, exit_pos)
         pygame.display.update()
 
-        if movimentos[pygame.K_s]:
+        if teclas[pygame.K_s]:
             status = "jogando"
             sec = 0
             timer = 0
 
-    elif status == "jogando":
+        elif teclas[pygame.K_e]:
+            tela_aberta = False
 
-        # Movimentação do carro1
-        if movimentos[pygame.K_UP] and posicao_y >= 30:  # o and limita o movimento
+    elif status == "jogando":
+        # Movimento do carro principal
+        if teclas[pygame.K_UP] and posicao_y >= 30:  
             posicao_y -= velocidade1
 
-        if movimentos[pygame.K_DOWN] and posicao_y <= 820:
+        if teclas[pygame.K_DOWN] and posicao_y <= 820:
             posicao_y += velocidade1
 
-        if movimentos[pygame.K_LEFT] and posicao_x >= 50:
+        if teclas[pygame.K_LEFT] and posicao_x >= 50:
             posicao_x -= velocidade
 
-        if movimentos[pygame.K_RIGHT] and posicao_x <= 500:
+        if teclas[pygame.K_RIGHT] and posicao_x <= 500:
             posicao_x += velocidade
 
-        # movimentação carro2 em loop
+        # >>>>>>>>> MOVIMENTOS DOS CARROS <<<<<<<
         posicao_y2 -= velocidade2
         if posicao_y2 <= -150:
             posicao_y2 = 1000
 
-        # movimentação carro3 em loop
         posicao_y3 += velocidade3
         if posicao_y3 >= 1000:
             posicao_y3 = -150
 
-        # movimentação carro4 em loop
         posicao_y4 += velocidade4
         if posicao_y4 >= 1000:
             posicao_y4 = -150
 
-        # movimentação carro5 em loop
         posicao_y5 += velocidade5
         if posicao_y5 >= 1000:
             posicao_y5 = -150
@@ -166,7 +171,7 @@ while tela_aberta:
         if sec >= 15:
             status = "vitoria"
 
-        # Movimentação das pistas
+   # >>>>>>>>> MOVIMENTOS DAS PISTAS <<<<<<<
         pos_pista1 += velocidade_pista
         pos_pista2+= velocidade_pista
         pos_pista3 += velocidade_pista
@@ -236,21 +241,33 @@ while tela_aberta:
         tela.blit(carro4, (posicao_x4, posicao_y4))  
         tela.blit(carro3, (posicao_x3, posicao_y3))  
         tela.blit(carro2, (posicao_x2, posicao_y2))  
-        tela.blit(carro, (posicao_x, posicao_y))  # Para conseguir ver o carro/posição
+        tela.blit(carro, (posicao_x, posicao_y))  
         pygame.display.update()
 
     if status == "vitoria":
         tela.fill((0, 0, 0))
         tela.blit(textoWin, win_pos)
+        tela.blit(textoJogarNovamente, jogarNovamente_pos)
+        tela.blit(textoExit, exit_pos)
         pygame.display.update()
-        pygame.time.delay(3000) # 3 segundos
-        tela_aberta = False
+
+        if teclas[pygame.K_a]:
+            status = "jogando"
+
+        elif teclas[pygame.K_e]:
+            tela_aberta = False
 
     elif status == "game_over":
         tela.fill((0, 0, 0))
         tela.blit(textoGameOver, gameOver_pos)
+        tela.blit(textoJogarNovamente, jogarNovamente_pos)
+        tela.blit(textoExit, exit_pos)
         pygame.display.update()
-        pygame.time.delay(3000) # 3 segundos
-        tela_aberta = False
+   
+        if teclas[pygame.K_a]:
+            status = "jogando"
+
+        elif teclas[pygame.K_e]:
+            tela_aberta = False
 
 pygame.quit()
