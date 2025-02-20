@@ -40,10 +40,6 @@ timer = 0
 sec = 0
 
 status = "menu"
-fontMenu = pygame.font.SysFont('None', 30)
-textoMenu = fontMenu.render("Pressione [S] para iniciar", True, (255, 255, 255,))
-menu_pos = textoMenu.get_rect()
-menu_pos.center = (300, 500)
 
 fontJogarNovamente = pygame.font.SysFont('Arial black', 20)
 textoJogarNovamente = fontJogarNovamente.render("Pressione [A] para jogar novamente", True, (255, 255, 255,))
@@ -103,8 +99,6 @@ while tela_aberta:
     if status == "menu":
         tela.fill((0, 0, 0))
         tela.blit(backgroundMenu, (0, 0))
-        tela.blit(textoMenu, menu_pos)
-        tela.blit(textoExit, exit_pos)
         pygame.display.update()
 
         if teclas[pygame.K_s]:
